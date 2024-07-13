@@ -155,27 +155,51 @@
     </style>
 </head>
 <body>
-    <button onclick="myAudio()" type="button" >Change Audio</button>
-    <button onclick="changeBackgroundImage()">
-        Change Background Image
-    </button>
-<audio id="myAudio" controls autoplay><source id="mp3_src" src="./audio/frozen-sea-184613.mp3">  
-</audio>
-    <script>
-        var t=0,h=0;
-        function changeBackgroundImage(){
-            h=h+1;
-            let headID=document.getElementById("background")
-            if(h%2==1){
-                headID.classList.remove("background");
-                headID.classList.add("background2");
-            }
-            else{
-                headID.classList.remove("background2");
-                headID.classList.add("background");
 
+    <audio id="audio" autoplay>
+        <source src="./audio/audio.mp3" type="audio/mp3">
+    </audio>
+    <audio id="audio2" autoplay>
+        <source src="./audio/audio1.mp3" type="audio/mp3">
+    </audio>
+    <button onclick="changeBackground()">Change Background</button>
+    <button onclick="changeAudio()">Change Audio</button>
+    <script>
+        //nút đổi background và nút đổi âm thanh riêng
+        var background = document.getElementById("background");
+        var background2 = document.getElementById("background2");
+        var audio = document.getElementById("audio");
+        var audio2 = document.getElementById("audio2");
+        
+        background2.style.display = "none";
+        audio2.style.display = "none";
+        function changeBackground()
+        {
+            if(background.style.display == "none")
+            {
+                background.style.display = "block";
+                background2.style.display = "none";
+            }
+            else
+            {
+                background.style.display = "none";
+                background2.style.display = "block";
+            }
         }
-    }
+        function changeAudio()
+        {
+            if(audio.style.display == "none")
+            {
+                audio.style.display = "block";
+                audio2.style.display = "none";
+            }
+            else
+            {
+                audio.style.display = "none";
+                audio2.style.display = "block";
+            }
+        }
+        
     </script>
     
     
