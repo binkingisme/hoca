@@ -22,6 +22,16 @@
     		overflow: hidden;
             background-size: cover;
         }
+        #background2
+        {
+            background-image: url(./background/background.avif);
+            width: 100%;
+
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+            background-size: cover;
+        }
         #shark
         {
             left: 100px; top: 400px;
@@ -145,6 +155,29 @@
     </style>
 </head>
 <body>
+    <button onclick="myAudio()" type="button" >Change Audio</button>
+    <button onclick="changeBackgroundImage()">
+        Change Background Image
+    </button>
+<audio id="myAudio" controls autoplay><source id="mp3_src" src="./audio/frozen-sea-184613.mp3">  
+</audio>
+    <script>
+        var t=0,h=0;
+        function changeBackgroundImage(){
+            h=h+1;
+            let headID=document.getElementById("background")
+            if(h%2==1){
+                headID.classList.remove("background");
+                headID.classList.add("background2");
+            }
+            else{
+                headID.classList.remove("background2");
+                headID.classList.add("background");
+
+        }
+    }
+    </script>
+    
     
     <div id="background"></div>
     <div class="ca" id="shark">
@@ -162,11 +195,7 @@
     <div class="ca" id="another">
         <img src="./fish/another.gif" width="100px" height="100px">
     </div>
-    <div>
-        <audio autoplay loop>
-            <source src="./sound/underwater.mp3" type="audio/mpeg">
-        </audio>
-    </div>
+
     <div id="seacrew1">
         <img src="./seacrew/seacrew1.gif" width="100px" height="100px">
     </div>
