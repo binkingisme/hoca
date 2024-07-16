@@ -156,11 +156,12 @@
 </head>
 <body>
 
+    <audio id="audio2" autoplay>
+
+        <source src="./audio/sea1.mp3" type="audio/mp3">
+    </audio>
     <audio id="audio" autoplay>
         <source src="./audio/sea.wav" type="audio/wav">
-    </audio>
-    <audio id="audio2" autoplay>
-        <source src="./audio/audio1.mp3" type="audio/mp3">
     </audio>
     <button onclick="changeBackground()">Change Background</button>
     <button onclick="changeAudio()">Change Audio</button>
@@ -178,11 +179,19 @@
         }
     }
     //audio tự động phát khi vào trang
-    var audio = document.getElementById("audio");
-    var audio2 = document.getElementById("audio2");
+
+    var i = 0;
     function changeAudio() {
-        audio2.play();
-        audio.pause();
+        i = i + 1;
+        var audioElement = document.getElementById('audio');
+        var audioElement2 = document.getElementById('audio2');
+        if (i % 2 == 1) {
+            audioElement.pause();
+            audioElement2.play();
+        } else {
+            audioElement.play();
+            audioElement2.pause();
+        }
     }
     
     </script>
