@@ -13,25 +13,25 @@
     		height: 100%;
     		overflow: hidden;
         }
-        #background
-        {
-            background-image: url(./background/background.jpg);
-            width: 100%;
+        .background
+		{
+			background-image: url(./background/background.jpg);
+			width: 100%;
     		height: 100%;
     		position: absolute;
     		overflow: hidden;
-            background-size: cover;
-        }
-        #background2
-        {
-            background-image: url(./background/background.avif);
-            width: 100%;
+			background-size: cover;
+		}
+		.newbackground
+		{
 
-            height: 100%;
-            position: absolute;
-            overflow: hidden;
-            background-size: cover;
-        }
+            background-image: url(./background/newbackground.jpg);
+			width: 100%;
+    		height: 100%;
+    		position: absolute;
+    		overflow: hidden;
+			background-size: cover;
+		}
         #shark
         {
             left: 100px; top: 400px;
@@ -157,7 +157,7 @@
 <body>
 
     <audio id="audio" autoplay>
-        <source src="./audio/audio.mp3" type="audio/mp3">
+        <source src="./audio/sea.wav" type="audio/wav">
     </audio>
     <audio id="audio2" autoplay>
         <source src="./audio/audio1.mp3" type="audio/mp3">
@@ -165,45 +165,35 @@
     <button onclick="changeBackground()">Change Background</button>
     <button onclick="changeAudio()">Change Audio</button>
     <script>
-        //nút đổi background và nút đổi âm thanh riêng
-        var background = document.getElementById("background");
-        var background2 = document.getElementById("background2");
-        var audio = document.getElementById("audio");
-        var audio2 = document.getElementById("audio2");
-        
-        background2.style.display = "none";
-        audio2.style.display = "none";
-        function changeBackground()
-        {
-            if(background.style.display == "none")
-            {
-                background.style.display = "block";
-                background2.style.display = "none";
-            }
-            else
-            {
-                background.style.display = "none";
-                background2.style.display = "block";
-            }
+    var i = 0;
+    function changeBackground() {
+        var background = document.getElementById('background');
+        var newbackground = document.getElementById('newbackground');
+        if (i % 2 == 1) {
+            background.style.display = 'block';
+            newbackground.style.display = 'none';
+        } else {
+            background.style.display = 'none';
+            newbackground.style.display = 'block';
         }
-        function changeAudio()
-        {
-            if(audio.style.display == "none")
-            {
-                audio.style.display = "block";
-                audio2.style.display = "none";
-            }
-            else
-            {
-                audio.style.display = "none";
-                audio2.style.display = "block";
-            }
+    }
+    function changeAudio() {
+        i = i + 1;
+    document.getElementById('autoplay');
+        var audioElement = document.getElementById('audio,autoplay');
+        var audioElement2 = document.getElementById('audio2');
+        if (i % 2 == 1) {
+            audioElement.pause();
+            audioElement2.play();
+        } else {
+            audioElement2.pause();
+            audioElement.play();
         }
-        
+    }
     </script>
     
     
-    <div id="background"></div>
+    <div id="background" class="background">
     <div class="ca" id="shark">
         <img src="./fish/giphy.gif"; width="450" height="249">
     </div>
