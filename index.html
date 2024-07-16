@@ -165,16 +165,16 @@
     <button onclick="changeBackground()">Change Background</button>
     <button onclick="changeAudio()">Change Audio</button>
     <script>
-    var i = 0;
+    var h = 0;
     function changeBackground() {
-        var background = document.getElementById('background');
-        var newbackground = document.getElementById('newbackground');
-        if (i % 2 == 1) {
-            background.style.display = 'block';
-            newbackground.style.display = 'none';
+        h = h + 1;
+        var backgroundElement = document.getElementById('background');
+        if (h % 2 == 1) {
+            backgroundElement.classList.remove("background");
+            backgroundElement.classList.add("newbackground");
         } else {
-            background.style.display = 'none';
-            newbackground.style.display = 'block';
+            backgroundElement.classList.remove("newbackground");
+            backgroundElement.classList.add("background");
         }
     }
     function changeAudio() {
